@@ -1,5 +1,19 @@
 import RoutableTabs from "@/components/RoutableTabs";
+import DataProvider from "@/providers/DataProvider";
 
-export default function Tab2() {
-  return <RoutableTabs tab={1} />;
+type TabType = {
+  content: string;
+};
+
+export default function Tab2({ content }: TabType) {
+  return (
+    <DataProvider data={content}>
+      <RoutableTabs tab={1} />
+    </DataProvider>
+  );
 }
+
+export const getServerSideProps = () => {
+  const content = "Tab 2 content";
+  return { props: { content } };
+};
