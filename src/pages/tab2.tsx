@@ -7,7 +7,7 @@ type TabType = {
 
 export default function Tab2({ content }: TabType) {
   return (
-    <DataProvider data={content}>
+    <DataProvider data={{ content }}>
       <RoutableTabs tab={1} />
     </DataProvider>
   );

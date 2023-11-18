@@ -5,15 +5,15 @@ type TabType = {
   content: string;
 };
 
-export default function Tab1({ content }: TabType) {
+export default function TabB({ content }: TabType) {
   return (
     <DataProvider data={{ content }}>
-      <RoutableTabs tab={0} />
+      <RoutableTabs tab={1} />
     </DataProvider>
   );
 }
 
 export const getServerSideProps = () => {
-  const content = "Tab 1 content";
+  const content = "Tab B content";
   return { props: { content } };
 };

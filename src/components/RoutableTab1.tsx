@@ -1,7 +1,21 @@
 import useData from "@/hooks/useData";
-import { Box } from "@mui/material";
+import { Box, Button } from "@mui/material";
+import { useRouter } from "next/router";
+import Dialogue from "./Dialogue";
 
 export default function RoutableTab1() {
-  const content = useData();
-  return <Box>{content}</Box>;
+  const { content } = useData();
+  const router = useRouter();
+
+  const handleOnOpenDialog = () => {
+    router.push("/tabA/1");
+  };
+
+  return (
+    <>
+      <Box sx={{ padding: 2 }}>{content}</Box>
+      <Button onClick={handleOnOpenDialog}>Open dialog</Button>
+      <Dialogue />
+    </>
+  );
 }

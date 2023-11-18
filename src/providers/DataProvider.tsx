@@ -1,9 +1,18 @@
 import { createContext } from "react";
 
-export const DataContext = createContext(null);
+type DataContextType = {
+  content: string;
+  dialogData?: {
+    title: string;
+    content: string;
+    returnPath: string;
+  };
+};
+
+export const DataContext = createContext<DataContextType | null>(null);
 type DataProviderType = {
   children: React.ReactNode;
-  data: any;
+  data: DataContextType;
 };
 
 export default function DataProvider({ children, data }: DataProviderType) {
